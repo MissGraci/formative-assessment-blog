@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Making Learning Visible: Formative Assessment in My Classroom</title>
+  <meta name="description" content="A blog-style post by an IB Computer Science & Design Innovation teacher on formative assessment with classroom examples." />
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#111827;       /* gray-900 */
+      --card:#0b1222;        /* deep navy */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --accent:#60a5fa;      /* blue-400 */
+      --accent-2:#22d3ee;    /* cyan-400 */
+      --ok:#34d399;          /* green-400 */
+      --warn:#fbbf24;        /* amber-400 */
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 20% -10%, rgba(96,165,250,.18), transparent 60%),
+                  radial-gradient(900px 600px at 110% 10%, rgba(34,211,238,.18), transparent 55%),
+                  var(--bg);
+      line-height: 1.6;
+    }
+    .site {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    header.hero {
+      background: linear-gradient(135deg, rgba(96,165,250,.16), rgba(34,211,238,.08));
+      border: 1px solid rgba(148,163,184,.15);
+      border-radius: calc(var(--radius) + 6px);
+      padding: clamp(20px, 6vw, 54px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(17,24,39,.75);
+      border: 1px solid rgba(148,163,184,.2);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .chip svg { width: 18px; height: 18px; opacity:.9 }
+    h1.title {
+      margin: 14px 0 6px;
+      font-size: clamp(28px, 4.5vw, 46px);
+      line-height: 1.15;
+      letter-spacing: .2px;
+    }
+    p.lede {
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-size: clamp(16px, 1.8vw, 19px);
+    }
+    .byline { color: var(--muted); font-size: .95rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      margin-top: 26px;
+    }
+    section.card {
+      grid-column: span 12;
+      background: linear-gradient(180deg, rgba(17,24,39,.55), rgba(11,18,34,.9));
+      border: 1px solid rgba(148,163,184,.16);
+      border-radius: var(--radius);
+      padding: clamp(16px, 3vw, 28px);
+      box-shadow: var(--shadow);
+    }
+    @media (min-width: 900px){
+      .half { grid-column: span 6; }
+    }
+    h2.section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(20px, 2.6vw, 28px);
+      margin: 0 0 14px;
+    }
+    .icon {
+      width: 28px; height: 28px; flex: 0 0 28px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.4));
+    }
+    .callout {
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      color: var(--muted);
+      margin: 10px 0 0;
+    }
+    ul.clean, ol.clean { margin: 10px 0 0 0; padding-left: 20px; }
+    li + li { margin-top: 6px; }
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(96,165,250,.15);
+      color: #dbeafe;
+      border: 1px solid rgba(96,165,250,.35);
+      border-radius: 999px;
+      font-size: .85rem;
+    }
+    .twocol {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 720px){
+      .twocol { grid-template-columns: repeat(2, 1fr); }
+    }
+    .success { border-left-color: var(--ok); }
+    .challenge { border-left-color: var(--warn); }
+    footer.end {
+      text-align: center;
+      color: var(--muted);
+      margin: 26px 0 10px;
+      font-size: .95rem;
+    }
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .95em;
+      background: rgba(15,23,42,.7);
+      border: 1px solid rgba(148,163,184,.25);
+      padding: 1px 6px;
+      border-radius: 6px;
+    }
+    .tagrow { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px }
+    .tagrow .pill { background: rgba(34,211,238,.12); border-color: rgba(34,211,238,.35); color:#cffafe }
+    a.button {
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:12px; border:1px solid rgba(148,163,184,.25);
+      background: rgba(96,165,250,.12); color:#dbeafe; text-decoration:none; margin-top:10px;
+    }
+    a.button:hover { background: rgba(96,165,250,.2); }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="hero">
+      <span class="chip" aria-label="Post category">
+        <!-- lightbulb icon -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 18h6m-9-8a6 6 0 1112 0c0 2.224-1.215 4.155-3 5.196V18H9v-2.804A5.999 5.999 0 016 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Formative Assessment • Classroom Practice
+      </span>
+      <h1 class="title">Making Learning Visible: How I Use Formative Assessment in My Classroom</h1>
+      <p class="lede">Formative assessment turns thinking into something we can see, discuss, and improve together. Below are two hands-on activities that help my students connect algorithms to real-world action.</p>
+      <div class="byline">By <strong>Gracielle Oliveira Mota Dias</strong> — IB Computer Science & Design Innovation • Pan American School of Bahia</div>
+      <div class="tagrow">
+        <span class="pill">IB DP</span>
+        <span class="pill">Computational Thinking</span>
+        <span class="pill">Project-Based Learning</span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Sandwich Algorithm -->
+      <section class="card half" id="sandwich">
+        <h2 class="section-title">
+          <!-- sandwich icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 8.5C3 7.12 4.12 6 5.5 6h13A2.5 2.5 0 0121 8.5V10H3V8.5z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M3 10h18v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M6 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          The “Sandwich Algorithm”
+        </h2>
+        <p class="callout">Students write precise, step-by-step instructions (an algorithm), then swap and execute each other’s “code” using real ingredients.</p>
+        <ol class="clean">
+          <li>Divide the class into two teams; provide ingredients and utensils.</li>
+          <li>Each team writes a step-by-step algorithm to assemble a sandwich.</li>
+          <li>Teams swap algorithms and follow them <em>exactly</em>.</li>
+          <li>Debrief: Where did ambiguity create “bugs”? How would you refactor?</li>
+        </ol>
+        <p class="callout">Skills: clarity, sequencing, decomposition, testing.</p>
+      </section>
+
+      <!-- Maze Challenge -->
+      <section class="card half" id="maze">
+        <h2 class="section-title">
+          <!-- maze icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 4h16v16H4V4zM8 8h8v8H8V8z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M12 4v4M12 16v4M4 12h4M16 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          The Real-Life Maze Challenge
+        </h2>
+        <p class="callout">A physical maze in the classroom with team roles mirrors a live development workflow.</p>
+        <ul class="clean">
+          <li><span class="kbd">Programmer</span>: drafts the command sequence.</li>
+          <li><span class="kbd">Debugger</span>: finds and fixes logic errors.</li>
+          <li><span class="kbd">Executor</span>: runs the program to navigate the maze.</li>
+        </ul>
+        <p class="callout">Skills: iteration, debugging, teamwork, resilience.</p>
+      </section>
+
+      <!-- Successes & Challenges -->
+      <section class="card" id="insights">
+        <h2 class="section-title">
+          <!-- plant icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 22V10m0 0s1-6 8-6c0 4-4 6-8 6zm0 0S11 4 4 4c0 4 4 6 8 6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          What Works — and What Stretches Us
+        </h2>
+        <div class="twocol">
+          <div>
+            <div class="callout success">
+              <strong>Successes</strong>
+              <ul class="clean">
+                <li>High engagement and deeper conceptual understanding.</li>
+                <li>Natural collaboration and peer teaching emerge.</li>
+                <li>Assessment becomes authentic, timely, and actionable.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="callout challenge">
+              <strong>Challenges</strong>
+              <ul class="clean">
+                <li>Preparation and classroom setup take time and space.</li>
+                <li>Managing different paces requires adaptive facilitation.</li>
+                <li>Outcomes are open-ended — teachers must embrace iteration.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing -->
+      <section class="card" id="closing">
+        <h2 class="section-title">
+          <!-- star icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 18.8 6.2 20.8l1.1-6.4L2.6 9.8l6.5-.9L12 3z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+          Final Reflection
+        </h2>
+        <p class="callout">Formative assessment is a continuous dialogue. It celebrates curiosity, creativity, and growth—and reminds us that learning is something we build together, step by step (and sometimes, bite by bite).</p>
+        <a class="button" href="#sandwich" title="Jump to Sandwich Algorithm">
+          Jump to Sandwich Algorithm
+        </a>
+      </section>
+    </main>
+
+    <footer class="end">
+      © 2025 • Gracielle Oliveira Mota Dias • IB Computer Science & Design Innovation
+    </footer>
+  </div>
+</body>
+</html>
