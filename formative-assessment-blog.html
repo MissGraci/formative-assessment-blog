@@ -7,20 +7,17 @@
   <style>
     :root {
       --bg: #0f172a;
-      --panel: #1e293b;
       --card: #111827;
       --accent: #60a5fa;
-      --accent2: #22d3ee;
       --text: #e2e8f0;
       --muted: #94a3b8;
       --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.4);
+      --shadow: 0 8px 28px rgba(0,0,0,.45);
     }
-    * { box-sizing: border-box; }
     body {
       margin: 0; padding: 0;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      background: linear-gradient(180deg,#0f172a 0%,#1e293b 100%);
       color: var(--text);
       line-height: 1.7;
     }
@@ -29,45 +26,51 @@
       margin: 0 auto;
       padding: 2rem;
     }
-    header {
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
-    }
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: .5rem;
-    }
-    header p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 800px;
-    }
-    .tag {
-      display: inline-block;
-      background: rgba(96,165,250,.2);
-      color: #bfdbfe;
-      border-radius: 999px;
-      padding: .3rem .9rem;
-      margin: .2rem;
-      font-size: .85rem;
-      border: 1px solid rgba(96,165,250,.3);
-    }
     a.back {
       display: inline-block;
-      margin-bottom: 1.5rem;
+      margin: 1rem 0 2rem 0;
       text-decoration: none;
       color: #93c5fd;
       background: rgba(96,165,250,.1);
-      padding: .5rem .9rem;
+      padding: .6rem 1rem;
       border-radius: 8px;
       border: 1px solid rgba(96,165,250,.25);
       transition: background .2s;
     }
-    a.back:hover {
-      background: rgba(96,165,250,.25);
+    a.back:hover { background: rgba(96,165,250,.25); }
+
+    header.hero {
+      position: relative;
+      height: 320px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
     }
+    header.hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.35) saturate(120%);
+    }
+    header.hero .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 3rem;
+    }
+    header.hero h1 {
+      font-size: 2.4rem;
+      color: #fff;
+      margin: 0 0 .5rem 0;
+    }
+    header.hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
+
     section {
       background: var(--card);
       border-radius: var(--radius);
@@ -79,20 +82,20 @@
       color: var(--accent);
       margin-top: 0;
     }
-    .activity {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: center;
+    figure {
+      margin: 1.5rem 0;
+      text-align: center;
     }
-    .activity img {
+    figure img {
       border-radius: var(--radius);
-      width: 400px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 800px;
       box-shadow: var(--shadow);
     }
-    .text-block {
-      flex: 1 1 320px;
+    figcaption {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: .4rem;
     }
     footer {
       text-align: center;
@@ -101,57 +104,71 @@
       font-size: .9rem;
       padding-bottom: 1rem;
     }
-    @media(max-width:800px){
-      header, section { padding: 1.5rem; }
-      header h1 { font-size: 1.8rem; }
+    @media(max-width:700px){
+      header.hero { height: 240px; }
+      header.hero h1 { font-size: 1.7rem; }
+      header.hero p { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <a href="index.html" class="back">← Back to Home</a>
-    <header>
-      <h1>Making Learning Visible: How I Use Formative Assessment in My Classroom</h1>
-      <p>Formative assessment turns thinking into something we can see, discuss, and improve together. Below are two hands-on activities that help my students connect algorithms to real-world action.</p>
-      <p><strong>By Gracielle Oliveira Mota Dias</strong> — IB Computer Science & Design Innovation • Pan American School of Bahia</p>
-      <div>
-        <span class="tag">IB DP</span>
-        <span class="tag">Computational Thinking</span>
-        <span class="tag">Project-Based Learning</span>
+
+    <header class="hero">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80" alt="Conceptual abstract background with code and technology lights">
+      <div class="overlay">
+        <h1>Making Learning Visible: How I Use Formative Assessment in My Classroom</h1>
+        <p>Exploring how formative assessment turns thinking into something we can see, discuss, and improve together.</p>
       </div>
     </header>
 
-    <section class="activity">
-      <div class="text-block">
-        <h2>The “Sandwich Algorithm”</h2>
-        <p>To explore algorithmic thinking, I divided students into two groups and brought real sandwich ingredients to class. Each group had to write a precise, step-by-step “algorithm” describing how to make a sandwich. Then, the teams swapped their instructions and had to follow them exactly to assemble the other group’s sandwich.</p>
-        <p>The results were full of laughter—and a few “buggy” sandwiches—but also deep insights into how clarity and precision are essential in programming. Students quickly realized that missing a single instruction or misplacing a step could completely change the outcome.</p>
-        <p><strong>What worked:</strong> Students were highly engaged and demonstrated strong collaboration and creativity.<br>
-        <strong>Challenge:</strong> Some groups needed extra support translating their natural language into logical sequences.</p>
-      </div>
-      <img src="https://files.oaiusercontent.com/file-000000008b80622f87e678394f834fa4" alt="Didactic illustration of sandwich algorithm activity">
-    </section>
+    <section>
+      <p>Formative assessment is one of the most powerful ways I connect students’ thinking with their learning process. It helps me understand not just what they know, but *how* they think. More importantly, it gives students ownership of their progress, turning each mistake into an opportunity to learn and improve.</p>
 
-    <section class="activity">
-      <img src="https://files.oaiusercontent.com/file-00000000a288622f92052306d543e019" alt="Didactic illustration of classroom maze challenge">
-      <div class="text-block">
-        <h2>The “Real-Life Maze Challenge”</h2>
-        <p>Another favorite formative assessment is the “Real-Life Maze Challenge.” I built a maze in the classroom and divided students into teams. Each member played a specific role: <strong>Programmer</strong> (writes commands), <strong>Debugger</strong> (checks and corrects errors), and <strong>Executor</strong> (follows instructions).</p>
-        <p>Teams had to create a sequence of commands to help the Executor navigate the maze successfully. Watching them plan, test, fail, and retry was inspiring—the activity made debugging and iteration feel natural and fun.</p>
-        <p><strong>What worked:</strong> Students developed perseverance, communication, and logical reasoning.<br>
-        <strong>Challenge:</strong> Setting up the maze took time, and managing different team speeds required flexibility.</p>
-      </div>
+      <p>Over time, I’ve learned that formative assessment doesn’t have to mean quizzes or checklists — it can be playful, creative, and hands-on. Below are two of my favorite examples that bring computational thinking to life in my classroom.</p>
     </section>
 
     <section>
-      <h2>What Worked and What Was Challenging</h2>
-      <p><strong>What Worked:</strong> Students were deeply engaged and retained concepts longer through experiential learning. Collaboration became natural, and the atmosphere in the classroom was filled with curiosity and joy.</p>
-      <p><strong>What Was Challenging:</strong> These activities require preparation and space, and managing varied learning paces can be tricky. However, the outcomes always justify the effort—students demonstrate true understanding, not memorization.</p>
+      <h2>🥪 The “Sandwich Algorithm”</h2>
+      <p>To explore algorithmic thinking, I divided students into two groups and brought real sandwich ingredients to class. Each team had to write step-by-step instructions describing how to make a sandwich — as if they were programming a robot. Then, they swapped instructions and tried to build the other team’s sandwich *exactly* as written.</p>
+
+      <figure>
+        <img src="https://files.oaiusercontent.com/file-000000008b80622f87e678394f834fa4" alt="Didactic illustration of students creating sandwich algorithms">
+        <figcaption>Students discovered how clarity, sequencing, and precision shape the outcome of a program.</figcaption>
+      </figure>
+
+      <p>The results were hilarious — some sandwiches were missing ingredients or completely reversed! But beyond the fun, students grasped that **ambiguity creates bugs**. They saw how computers interpret instructions literally and how every step in an algorithm must be clear and ordered.</p>
+
+      <p><strong>What worked:</strong> Students showed high engagement, teamwork, and creativity.<br>
+      <strong>Challenge:</strong> Translating everyday language into logical code-like structures took time and support.</p>
     </section>
 
     <section>
-      <h2>Final Reflection</h2>
-      <p>For me, formative assessment is a continuous dialogue—a living process that celebrates curiosity, creativity, and growth. Every mistake becomes an opportunity to reflect and refine. When students see learning as an iterative journey, they begin to value not just the result but the process itself.</p>
+      <h2>🌀 The “Real-Life Maze Challenge”</h2>
+      <p>In another lesson, I transformed the classroom into a giant maze made of desks and tape on the floor. Students worked in teams with three defined roles: **Programmer**, **Debugger**, and **Executor**. Together, they had to design a sequence of commands to guide their teammate safely through the maze.</p>
+
+      <figure>
+        <img src="https://files.oaiusercontent.com/file-00000000a288622f92052306d543e019" alt="Didactic illustration of maze challenge in a classroom">
+        <figcaption>Collaboration and debugging came to life as students guided each other through the maze.</figcaption>
+      </figure>
+
+      <p>Watching the teams plan, test, fail, and try again was incredible. They celebrated small wins and quickly learned to view errors as feedback. The atmosphere was filled with laughter, focus, and problem-solving energy — the essence of computational thinking.</p>
+
+      <p><strong>What worked:</strong> The activity promoted perseverance, communication, and logical reasoning.<br>
+      <strong>Challenge:</strong> Setting up the maze required preparation and managing different paces demanded flexibility.</p>
+    </section>
+
+    <section>
+      <h2>🌱 Reflection: What Works and What’s Challenging</h2>
+      <p>Both activities transformed abstract programming concepts into memorable experiences. Students didn’t just learn algorithms — they *lived* them. The success of these lessons lies in their simplicity and emotional engagement: they allow students to feel the logic rather than memorize it.</p>
+
+      <p>Still, these lessons require planning, time, and space. Not every class can unfold perfectly, but every attempt offers valuable insight. I’ve learned to embrace unpredictability as part of the process — after all, iteration is at the heart of both learning and programming.</p>
+    </section>
+
+    <section>
+      <h2>✨ Final Reflection</h2>
+      <p>For me, formative assessment is a continuous dialogue — a way to make learning visible, tangible, and meaningful. When students are invited to test, fail, and reflect, they grow as thinkers and collaborators. These small, playful moments often reveal the biggest breakthroughs.</p>
     </section>
 
     <footer>
