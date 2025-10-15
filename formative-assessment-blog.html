@@ -21,89 +21,35 @@
       color: var(--text);
       line-height: 1.7;
     }
-    .container {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
+    .container { max-width: 950px; margin: 0 auto; padding: 2rem; }
     a.back {
-      display: inline-block;
-      margin: 1rem 0 2rem 0;
-      text-decoration: none;
-      color: #93c5fd;
-      background: rgba(96,165,250,.1);
-      padding: .6rem 1rem;
-      border-radius: 8px;
-      border: 1px solid rgba(96,165,250,.25);
+      display: inline-block; margin: 1rem 0 2rem 0; text-decoration: none;
+      color: #93c5fd; background: rgba(96,165,250,.1);
+      padding: .6rem 1rem; border-radius: 8px; border: 1px solid rgba(96,165,250,.25);
       transition: background .2s;
     }
     a.back:hover { background: rgba(96,165,250,.25); }
 
+    /* HERO */
     header.hero {
-      position: relative;
-      height: 320px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
+      position: relative; height: 320px; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow); margin-bottom: 2rem;
     }
-    header.hero img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: brightness(0.35) saturate(120%);
-    }
-    header.hero .overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 2rem 3rem;
-    }
-    header.hero h1 {
-      font-size: 2.4rem;
-      color: #fff;
-      margin: 0 0 .5rem 0;
-    }
-    header.hero p {
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-    }
+    header.hero img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.38) saturate(120%); }
+    header.hero .overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 3rem; }
+    header.hero h1 { font-size: 2.4rem; color: #fff; margin: 0 0 .5rem 0; }
+    header.hero p { color: var(--muted); font-size: 1.1rem; max-width: 600px; }
 
-    section {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 2rem;
-      margin-top: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-    h2 {
-      color: var(--accent);
-      margin-top: 0;
-    }
-    figure {
-      margin: 1.5rem 0;
-      text-align: center;
-    }
-    figure img {
-      border-radius: var(--radius);
-      width: 100%;
-      max-width: 800px;
-      box-shadow: var(--shadow);
-    }
-    figcaption {
-      color: var(--muted);
-      font-size: .9rem;
-      margin-top: .4rem;
-    }
-    footer {
-      text-align: center;
-      color: var(--muted);
-      margin-top: 3rem;
-      font-size: .9rem;
-      padding-bottom: 1rem;
-    }
+    /* SECTIONS */
+    section { background: var(--card); border-radius: var(--radius); padding: 2rem; margin-top: 1.5rem; box-shadow: var(--shadow); }
+    h2 { color: var(--accent); margin-top: 0; }
+
+    figure { margin: 1.5rem 0; text-align: center; }
+    figure img { border-radius: var(--radius); width: 100%; max-width: 800px; box-shadow: var(--shadow); }
+    figcaption { color: var(--muted); font-size: .9rem; margin-top: .4rem; }
+
+    footer { text-align: center; color: var(--muted); margin-top: 3rem; font-size: .9rem; padding-bottom: 1rem; }
+
     @media(max-width:700px){
       header.hero { height: 240px; }
       header.hero h1 { font-size: 1.7rem; }
@@ -115,8 +61,9 @@
   <div class="container">
     <a href="index.html" class="back">← Back to Home</a>
 
+    <!-- HERO (uses your uploaded banner image) -->
     <header class="hero">
-      <img src="https://images.unsplash.com/photo-1557143399-5bdcbbb8a34b?auto=format&fit=crop&w=1600&q=80" alt="Abstract technology background">
+      <img src="images/banner%20Image%20Oct%2014%2C%202025%2C%2011_41_52%20PM.png" alt="Conceptual technology banner">
       <div class="overlay">
         <h1>Making Learning Visible: How I Use Formative Assessment in My Classroom</h1>
         <p>Exploring how formative assessment turns thinking into something we can see, discuss, and refine.</p>
@@ -124,15 +71,15 @@
     </header>
 
     <section>
-      <p>Formative assessment is one of the most powerful ways I connect students’ thinking with their learning process. It helps me understand not just what they know, but *how* they think. Importantly, it gives students ownership over their growth and turns every error into a chance to reflect and refine.</p>
-      <p>Over time, I’ve realized that formative assessment doesn’t have to be quizzes or worksheets — it can be playful, embodied, and deeply meaningful. The two activities below highlight how students can *live* computational thinking in class.</p>
+      <p>Formative assessment is one of the most powerful ways I connect students’ thinking with their learning process. It helps me understand not just what they know, but <em>how</em> they think. Importantly, it gives students ownership over their growth and turns every error into a chance to reflect and refine.</p>
+      <p>Over time, I’ve realized that formative assessment doesn’t need to be quizzes or worksheets — it can be playful, embodied, and deeply meaningful. The two activities below show how students can <em>live</em> computational thinking in class.</p>
     </section>
 
     <section>
       <h2>🥪 The “Sandwich Algorithm”</h2>
-      <p>I divided students into two groups and brought real sandwich ingredients to class. Each group had to write a precise, step-by-step “algorithm” describing how to assemble a sandwich. Then, they swapped instructions and attempted to build the other team’s sandwich *exactly* as written.</p>
+      <p>I divided students into two groups and brought real sandwich ingredients to class. Each group wrote a precise, step-by-step “algorithm” for assembling a sandwich. Then they swapped instructions and tried to build the other team’s sandwich <em>exactly</em> as written.</p>
       <figure>
-        <img src="https://images.unsplash.com/photo-1559628233-60f31eab1a5f?auto=format&fit=crop&w=1200&q=80" alt="Sandwich making classroom activity">
+        <img src="images/sandwich%20Oct%2014%2C%202025%2C%2011_49_50%20PM.png" alt="Students learning algorithmic thinking with a sandwich activity">
         <figcaption>Students experienced how precision and clarity impact algorithmic outcomes.</figcaption>
       </figure>
       <p>The results were playful and illuminating — some sandwiches were mixed up, ingredients missing, or steps reversed. These “bugs” sparked discussion about how even a small omission or ambiguity can change an entire process.</p>
@@ -142,9 +89,9 @@
 
     <section>
       <h2>🌀 The “Real-Life Maze Challenge”</h2>
-      <p>In another lesson, I transformed the classroom into a maze with desks and tape. Students worked in teams with three roles: **Programmer**, **Debugger**, and **Executor**. Together, they designed a sequence of commands to navigate the maze successfully.</p>
+      <p>In another lesson, I transformed the classroom into a maze with desks and tape. Students worked in teams with three roles: <strong>Programmer</strong>, <strong>Debugger</strong>, and <strong>Executor</strong>. Together, they designed a command sequence to navigate the maze successfully.</p>
       <figure>
-        <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=1200&q=80" alt="Classroom maze challenge">
+        <img src="images/Maze%20Oct%2014%2C%202025%2C%2011_51_33%20PM.png" alt="Students programming a real-life maze challenge in class">
         <figcaption>Teams tested their command sequences in real space, iterating through failures.</figcaption>
       </figure>
       <p>Watching students plan, test, fail, and revise was inspiring. They began to see errors as feedback rather than failure. The atmosphere became collaborative, energetic, and focused.</p>
@@ -154,7 +101,7 @@
 
     <section>
       <h2>🌱 Reflection: What Works & What’s Challenging</h2>
-      <p>The magic of these activities lies in transformation — concepts become experiences. Students didn’t just learn algorithms, they *felt* them. Engagement, curiosity, and peer teaching surged.</p>
+      <p>The magic of these activities lies in transformation — concepts become experiences. Students didn’t just learn algorithms; they <em>felt</em> them. Engagement, curiosity, and peer teaching surged.</p>
       <p>Yet, the challenges remain: preparation, timing, space constraints, and pacing. I embrace this complexity because it’s in the struggle that growth happens. Embracing iteration, renegotiating instructions, and opening space for error has deepened student ownership and reflection.</p>
     </section>
 
